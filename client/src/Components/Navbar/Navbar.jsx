@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
         color: "white",
         fontSize: "20px",
-        marginLeft: theme.spacing(12),
+        marginLeft: theme.spacing(10),
         "&:hover": {
-            color: "yellow",
+            color: "orange",
             borderBottom: "1px solid white",
         },
     },
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 function Navbar() {
     const classes = useStyles();
     return (
-        <AppBar position="static">
+        <AppBar position="sticky" style={{ background: "#000033" }}>
             <CssBaseline />
             <Toolbar>
                 <Typography variant="h4" className={classes.logo}>

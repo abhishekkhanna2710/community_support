@@ -29,12 +29,27 @@ export default function Home() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const [name, setName] = useState();
-    const [wish, setWish] = useState();
-
+    
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    
+    
+    const [user, setUser] = useState({
+        name: "",
+        wish: ""
+    });
+
+    const handleInputChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value })
+        // console.log(user)
+    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const { name, wish } = user;
+
+        console.log(user)
+    }
 
     return (
         <div>
@@ -53,18 +68,18 @@ export default function Home() {
 
                         <TabPanel value="1">
                             {/* Text Field inputs */}
-                            <TextField type='text' id="standard-basic" label="Your Name" variant="standard" fullWidth required value={name} onChange={(e) => setName(e.target.value)} />
+                            <TextField type='text' id="standard-basic" name="name" label="Your Name" variant="standard" fullWidth required value={user.name} onChange={handleInputChange} />
 
                         </TabPanel>
                         <TabPanel value="2">
 
-                            <TextField type='text' id="standard-basic" label="Make your wish" variant="standard" fullWidth required value={wish} onChange={(e) => setWish(e.target.value)} />
+                            <TextField type='text' id="standard-basic" name="wish" label="Make your wish" variant="standard" fullWidth required value={user.wish} onChange={handleInputChange} />
 
                         </TabPanel>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                            <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                <Tab label="⬅️" value="1" />
-                                <Tab label="➡️" value="2" />
+                            <TabList style={{ width: "100%" }} onChange={handleChange} aria-label="lab API tabs example">
+                                <Tab label="⬅️ Back" value="1" />
+                                <Tab label="➡️ Next" value="2" />
 
                             </TabList>
                         </Box>
@@ -75,7 +90,7 @@ export default function Home() {
                     {/* <TextField type='text' id="standard-basic" label="Your Name" variant="standard" fullWidth required value={name} onChange={(e) => setName(e.target.value)} /> */}
 
                     <Grid container justifyContent="center" marginTop={4}>
-                        <Button variant="outlined" href="#outlined-buttons" style={{ background: "#EC401B", color: "white" }}>
+                        <Button variant="outlined" style={{ background: "#EC401B", color: "white" }} onClick={handleSubmit}>
                             Submit
                         </Button>
                     </Grid>

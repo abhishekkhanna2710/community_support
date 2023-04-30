@@ -6,7 +6,7 @@ const connection = require("./db/Connection.js")
 
 
 
-// Dtabase connection
+// Database connection
 connection();
 
 // middlewares

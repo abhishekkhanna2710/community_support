@@ -1,14 +1,17 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const cors = require('cors');
+const connection = require("./db/Connection.js")
 
+
+
+// Dtabase connection
+connection();
 
 // middlewares
 app.use(express.json())
 app.use(cors());
-
-
-
 
 
 const port = process.env.PORT || 5000;

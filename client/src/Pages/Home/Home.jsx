@@ -29,12 +29,12 @@ export default function Home() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    
-    
+
+
     const [user, setUser] = useState({
         name: "",
         wish: ""
@@ -72,6 +72,8 @@ export default function Home() {
 
                         </TabPanel>
                         <TabPanel value="2">
+
+
 
                             <TextField type='text' id="standard-basic" name="wish" label="Make your wish" variant="standard" fullWidth required value={user.wish} onChange={handleInputChange} />
 
